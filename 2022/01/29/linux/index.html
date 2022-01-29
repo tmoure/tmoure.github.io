@@ -1,0 +1,1922 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="linux, 三餐四季">
+    <meta name="description" content="linux常用命令一、基础
+关机
+
+shutdown -h now/5 —— 立即/5分钟后关机
+poweroff  —— 立即关机
+
+
+重启
+
+shutdown -r now/5 —— 立即/5分钟后重启
+preboot  —— 立即关机">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>linux | 三餐四季</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">三餐四季</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/Box/tool" class="waves-effect waves-light">
+      
+      <i class="fas fa-toolbox" style="zoom: 0.6;"></i>
+      
+      <span>Box</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">三餐四季</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/Box/tool" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-toolbox"></i>
+			
+			Box
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">linux</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+                                <span class="chip bg-color">命令行</span>
+                            </a>
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%80%81%E8%B0%AD/" class="post-category">
+                                老谭
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-01-29
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h1><h4 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h4><ul>
+<li><p>关机</p>
+<blockquote>
+<p>shutdown -h now/5 —— 立即/5分钟后关机</p>
+<p>poweroff  —— 立即关机</p>
+</blockquote>
+</li>
+<li><p>重启</p>
+<blockquote>
+<p>shutdown -r now/5 —— 立即/5分钟后重启</p>
+<p>preboot  —— 立即关机</p>
+</blockquote>
+</li>
+<li><p>帮助</p>
+<blockquote>
+<p>&lt;命令&gt; –help —— 帮助文档</p>
+<p>man &lt;命令&gt; —— 说明书</p>
+</blockquote>
+</li>
+<li><p>切换用户</p>
+<blockquote>
+<p>su —— su用于用户之间的切换。但是切换前的用户依然保持登录状态。如果是root 向普通或虚拟用户切换不需要密码，反之普通用户切换到其它任何用户都需要密码验证</p>
+<pre class=" language-c"><code class="language-c">su test<span class="token punctuation">:</span>切换到test用户，但是路径还是<span class="token operator">/</span>root目录
+su <span class="token operator">-</span> test <span class="token punctuation">:</span> 切换到test用户，路径变成了<span class="token operator">/</span>home<span class="token operator">/</span>test
+su <span class="token punctuation">:</span> 切换到root用户，但是路径还是原来的路径
+su <span class="token operator">-</span> <span class="token punctuation">:</span> 切换到root用户，并且路径是<span class="token operator">/</span>root
+</code></pre>
+<p>sudo —— 切换到root用户</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="二、目录"><a href="#二、目录" class="headerlink" title="二、目录"></a>二、目录</h4><ul>
+<li><p>切换</p>
+<blockquote>
+<p>cd</p>
+<blockquote>
+<p>/ —— 切换到根目录</p>
+<p>.. —— 切换到上级目录</p>
+<p>- —— 切换到上次访问的目录</p>
+<p>~ —— 切换到home目录</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>查看</p>
+<blockquote>
+<p>ls [-al]</p>
+<blockquote>
+<p>a —— 查看当前目录下所有文件及目录 包括隐藏文件</p>
+<p>l —— 列表查看 信息显示更多</p>
+<p>/dir —— 查看指定目录下的文件及目录</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>操作</p>
+<ul>
+<li><p>增</p>
+<blockquote>
+<p>mkdir 目录 —— 在当前/指定目录（/dir/目录）下创建目录</p>
+</blockquote>
+</li>
+<li><p>删</p>
+<blockquote>
+<p>rm [-rf] 目录（或文件）</p>
+<p>-r —— 递归删除 （删除当前目录下所有的文件）</p>
+<p>-f —— 强制删除</p>
+</blockquote>
+</li>
+<li><p>改</p>
+<ul>
+<li><p>重命名</p>
+<blockquote>
+<p>mv 当前目录 新目录 （也可以用于文件或者压缩包）</p>
+</blockquote>
+</li>
+<li><p>剪切</p>
+<blockquote>
+<p>mv 目录名称 新目录位置 （也可以用于文件或者压缩包）</p>
+</blockquote>
+</li>
+<li><p>拷贝</p>
+<blockquote>
+<p>cp -r（仅对目录操作时需要） 目录名称 拷贝的目标位置</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>查</p>
+<blockquote>
+<p>find 目录 参数 文件名称</p>
+<p>例：find / -name *.apk 查找当前目录下的apk文件</p>
+</blockquote>
+</li>
+<li><p>pwd —— 查看当前目录</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="三、文件"><a href="#三、文件" class="headerlink" title="三、文件"></a>三、文件</h4><ul>
+<li><p>增</p>
+<blockquote>
+<p>touch 文件名 </p>
+</blockquote>
+</li>
+<li><p>删</p>
+<blockquote>
+<p>rm -rf 文件名</p>
+</blockquote>
+</li>
+<li><p>改</p>
+<blockquote>
+<p>修改文件可以采用vim，具体的使用方法可查看<a href="https://tmoure.github.io/2022/01/26/vim/">vim</a></p>
+</blockquote>
+</li>
+<li><p>查</p>
+<ul>
+<li><p>cat</p>
+<blockquote>
+<p>输出文件全部内容，显示定位到最后一页</p>
+</blockquote>
+</li>
+<li><p>more</p>
+<blockquote>
+<p>从头开始百分比显示</p>
+<p>​    回车 —— 向下一行</p>
+<p>​    空格 —— 向下一页</p>
+<p>​    q —— 退出查看</p>
+</blockquote>
+</li>
+<li><p>less</p>
+<blockquote>
+<p>相较于more，无百分比显示 其余对文件的查看操作类似</p>
+</blockquote>
+</li>
+<li><p>tail</p>
+<blockquote>
+<p>指定查看多少行</p>
+<p>tail -10 文件名 指定查看文件后10行</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>权限修改</p>
+<blockquote>
+<p>chmod</p>
+<p>​    读——4</p>
+<p>​    写——2</p>
+<p>​    执行——1</p>
+</blockquote>
+</li>
+<li><p>解压缩</p>
+<ul>
+<li><p>打包/压缩</p>
+<blockquote>
+<p>在linux中可以识别的常见压缩格式有几十种，比如.zip、.gz、.bz2、.tar、.tar.gz、.tar.bz2等，Linux不支持.rar和.tz格式的压缩文件。</p>
+</blockquote>
+<ul>
+<li><p>.zip格式：zip [选项] 压缩包名 源文件/源目录</p>
+<blockquote>
+<p>-r 压缩目录时使用</p>
+</blockquote>
+</li>
+<li><p>.gz格式：gzip [选项] 源文件</p>
+<blockquote>
+<p>-c —— 将压缩数据输出到标准输出中，可以用于保留源文件</p>
+<blockquote>
+<p>使用gzip压缩文件后会将原文件删除，如果想保留原文件则可以使用-c选项将压缩过程产生的标准输出写入一个新的文件中，示例如下：&gt;的作用是覆盖内容，&gt;&gt;的作用是追加内容</p>
+</blockquote>
+<p>-d ——解压缩</p>
+<blockquote>
+<p>解压缩也可以使用gunzip：</p>
+</blockquote>
+<p>-r —— 压缩目录</p>
+<blockquote>
+<p>gzip命令不会打包压缩，即gzip -r xxx 表示将xxx目录下的文件每一个分别压缩</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>.bz2格式：bzip2 [选项] 源文件（<strong>bzip2不能压缩目录，会报错</strong>）</p>
+<blockquote>
+<p>-d —— 解压缩</p>
+<p>-k —— 压缩式，保留源文件</p>
+<p>-v ——  显示压缩的详细信息</p>
+</blockquote>
+</li>
+<li><p>.tar格式：tar [选项] [-f 压缩包名] 源目录/源文件</p>
+<blockquote>
+<p>-c —— 打包</p>
+<p>-f —— 指定压缩包的文件名</p>
+<p>-v —— 显示详细的打包过程</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>解压</p>
+<ul>
+<li><p>unzip [选项] 压缩包名</p>
+<blockquote>
+<p>-d：指定解压缩位置</p>
+</blockquote>
+</li>
+<li><p>tar [选项] 压缩包</p>
+<blockquote>
+<p>-x —— 解打包</p>
+<p>-f —— 指定压缩包的文件名</p>
+<p>-v —— 详细解打包信息</p>
+<p>-t —— 测试，不解打包，只是查看包名中的文件</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="四、查找"><a href="#四、查找" class="headerlink" title="四、查找"></a>四、查找</h4><ul>
+<li><p>grep</p>
+<pre class=" language-c"><code class="language-c">基本格式：grep <span class="token punctuation">[</span>选项<span class="token punctuation">]</span> pattern <span class="token punctuation">[</span>文件名<span class="token punctuation">]</span>
+</code></pre>
+<blockquote>
+<p><strong>选项：</strong></p>
+<pre class=" language-c"><code class="language-c"><span class="token string">''</span>'
+<span class="token operator">-</span><span class="token operator">?</span> 同时显示匹配行上下的？行，如：grep <span class="token operator">-</span><span class="token number">2</span> pattern filename 同时显示匹配行的上下<span class="token number">2</span>行。
+<span class="token operator">-</span>b，—byte<span class="token operator">-</span>offset 打印匹配行前面打印该行所在的块号码。
+<span class="token operator">-</span>c<span class="token punctuation">,</span>—count 只打印匹配的行数，不显示匹配的内容。
+<span class="token operator">-</span>f File，—file<span class="token operator">=</span>File 从文件中提取模板。空文件中包含<span class="token number">0</span>个模板，所以什么都不匹配。
+<span class="token operator">-</span>h，—no<span class="token operator">-</span>filename 当搜索多个文件时，不显示匹配文件名前缀。
+<span class="token operator">-</span>i，—ignore<span class="token operator">-</span><span class="token keyword">case</span> 忽略大小写差别。
+<span class="token operator">-</span>q，—quiet 取消显示，只返回退出状态。<span class="token number">0</span>则表示找到了匹配的行。
+<span class="token operator">-</span>l，—files<span class="token operator">-</span>with<span class="token operator">-</span>matches 打印匹配模板的文件清单。
+<span class="token operator">-</span>L，—files<span class="token operator">-</span>without<span class="token operator">-</span>match 打印不匹配模板的文件清单。
+<span class="token operator">-</span>n，—line<span class="token operator">-</span>number 在匹配的行前面打印行号。
+<span class="token operator">-</span>s，—silent 不显示关于不存在或者无法读取文件的错误信息。
+<span class="token operator">-</span>v，—revert<span class="token operator">-</span>match 反检索，只显示不匹配的行。
+<span class="token operator">-</span>w，—word<span class="token operator">-</span>regexp 如果被\<span class="token operator">&lt;</span>和<span class="token operator">></span>引用，就把表达式做为一个单词搜索。
+<span class="token operator">-</span>V，—version 显示软件版本信息。
+<span class="token string">''</span>'
+</code></pre>
+</blockquote>
+<blockquote>
+<p>**pattern:**所要匹配的字符串</p>
+<pre class=" language-c"><code class="language-c"><span class="token punctuation">.</span> 匹配任意一个字符
+<span class="token operator">*</span> 匹配 <span class="token number">0</span> 个或多个 <span class="token operator">*</span> 前的字符
+<span class="token operator">^</span> 匹配行开头
+$ 匹配行结尾
+<span class="token punctuation">[</span><span class="token punctuation">]</span> 匹配 <span class="token punctuation">[</span> <span class="token punctuation">]</span> 中的任意一个字符，<span class="token punctuation">[</span><span class="token punctuation">]</span> 中可用 <span class="token operator">-</span> 表示范围，
+例如 <span class="token punctuation">[</span>a<span class="token operator">-</span>z<span class="token punctuation">]</span> 表示字母 a 至z 中的任意一个
+\ 转意字符
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>例子：</strong></p>
+<pre class=" language-c"><code class="language-c">ls <span class="token operator">-</span>l <span class="token operator">|</span> grep <span class="token string">'^a'</span> 通过管道过滤ls <span class="token operator">-</span>l输出的内容，只显示以a开头的行。
+grep <span class="token string">'test'</span> d<span class="token operator">*</span> 显示所有以d开头的文件中包含test的行。
+grep <span class="token string">'test'</span> aa bb cc 显示在aa，bb，cc文件中匹配test的行。
+grep <span class="token string">'[a-z]'</span> aa 显示所有包含每个字符串至少有<span class="token number">5</span>个连续小写字符的字符串的行。
+grep <span class="token string">'w(es)t.*'</span> aa 如果west被匹配，则es就被存储到内存中，并标记为<span class="token number">1</span>，然后搜索任意个字符<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span>，这些字符后面紧跟着另外一个<span class="token function">es</span><span class="token punctuation">(</span><span class="token punctuation">)</span>，找到就显示该行。如果用egrep或grep <span class="token operator">-</span>E，就不用<span class="token string">""</span>号进行转义，直接写成<span class="token string">'w(es)t.*'</span>就可以了。
+grep <span class="token operator">-</span>i pattern files ：不区分大小写地搜索。默认情况区分大小写
+grep <span class="token operator">-</span>l pattern files ：只列出匹配的文件名，
+grep <span class="token operator">-</span>L pattern files ：列出不匹配的文件名，
+grep <span class="token operator">-</span>w pattern files ：只匹配整个单词，而不是字符串的一部分<span class="token punctuation">(</span>如匹配‘magic’，而不是‘magical’<span class="token punctuation">)</span>，
+grep <span class="token operator">-</span>C number pattern files ：匹配的上下文分别显示<span class="token punctuation">[</span>number<span class="token punctuation">]</span>行，
+grep pattern1 <span class="token operator">|</span> pattern2 files ：显示匹配 pattern1 或 pattern2 的行，
+grep pattern1 files <span class="token operator">|</span> grep pattern2 ：显示既匹配 pattern1 又匹配 pattern2 的行。
+</code></pre>
+</blockquote>
+</li>
+<li><p>find</p>
+<blockquote>
+<pre class=" language-c"><code class="language-c">find <span class="token operator">&lt;</span> path <span class="token operator">></span> <span class="token operator">&lt;</span> expression <span class="token operator">></span> <span class="token operator">&lt;</span> cmd <span class="token operator">></span>
+<span class="token string">''</span>'
+path： 所要搜索的目录及其所有子目录。默认为当前目录。
+expression： 所要搜索的文件的特征。
+cmd： 对搜索结果进行特定的处理。
+如果什么参数也不加，find默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。
+<span class="token string">''</span>'
+</code></pre>
+</blockquote>
+<p><strong>常用选项：</strong></p>
+<ul>
+<li><p>-name：按照文件名查找文件</p>
+<pre class=" language-c"><code class="language-c"># 在<span class="token operator">/</span>dir目录及其子目录下面查找名字为filename的文件
+find <span class="token operator">/</span>dir <span class="token operator">-</span>name filename 
+# 在当前目录及其子目录（用“<span class="token punctuation">.</span>”表示）中查找任何扩展名为“c”的文件
+find <span class="token punctuation">.</span> <span class="token operator">-</span>name <span class="token string">"*.c"</span> 
+# 在 etc 目录下，查找大写字母开头的 txt 文件
+find <span class="token operator">/</span>etc <span class="token operator">-</span>name <span class="token string">"[A-Z]*.txt"</span> <span class="token operator">-</span>print                               #<span class="token operator">-</span>print 将结果输出到标准输出
+# 在当前目录下查找不是 out 开头的 txt 文件
+find <span class="token punctuation">.</span> <span class="token operator">-</span>name <span class="token string">"out*"</span> <span class="token operator">-</span>prune <span class="token operator">-</span>o <span class="token operator">-</span>name <span class="token string">"*.txt"</span> <span class="token operator">-</span>print            #<span class="token operator">-</span>o 或者 <span class="token operator">-</span>a 并且 <span class="token operator">-</span>not 非
+# 在当前目录除 git 子目录外查找 txt 文件
+find <span class="token punctuation">.</span> <span class="token operator">-</span>path <span class="token string">"./git"</span> <span class="token operator">-</span>prune <span class="token operator">-</span>o <span class="token operator">-</span>name <span class="token string">"*.txt"</span> <span class="token operator">-</span>print
+# 找出某个文件的所有硬链接，ls 命令 <span class="token operator">-</span>i 选项可以查看文件的 inode 号
+ls <span class="token operator">-</span>i <span class="token number">1</span><span class="token punctuation">.</span>txt  # <span class="token number">138956</span> <span class="token number">1</span><span class="token punctuation">.</span>txt
+find <span class="token punctuation">.</span> <span class="token operator">-</span>num <span class="token number">138956</span>
+
+# 搜索文件时使用 <span class="token operator">-</span>iname 参数可以忽略文件名称大小写
+</code></pre>
+</li>
+<li><p>-perm：按照文件权限来查找文件</p>
+<pre class=" language-c"><code class="language-c">find <span class="token punctuation">.</span> <span class="token operator">-</span>perm <span class="token number">755</span> –print # 在当前目录下查找文件权限位为<span class="token number">755</span>的文件，即文件属主可以读、写、执行，其他用户可以读、执行的文件
+</code></pre>
+</li>
+<li><p>-prune：使 find 命令不在当前指定的目录中查找，如果同时使用 -depth 选项，那么 -prune 将被 find 命令忽略</p>
+<pre class=" language-c"><code class="language-c">find <span class="token operator">/</span>apps <span class="token operator">-</span>path <span class="token string">"/apps/bin"</span> <span class="token operator">-</span>prune <span class="token operator">-</span>o –print # 在<span class="token operator">/</span>apps目录下查找文件，但不希望在<span class="token operator">/</span>apps<span class="token operator">/</span>bin目录下查找
+find <span class="token operator">/</span>usr<span class="token operator">/</span>sam <span class="token operator">-</span>path <span class="token string">"/usr/sam/dir1"</span> <span class="token operator">-</span>prune <span class="token operator">-</span>o –print # 在<span class="token operator">/</span>usr<span class="token operator">/</span>sam目录下查找不在dir1子目录之内的所有文件
+</code></pre>
+</li>
+<li><p>-depth：在查找文件时，首先查找当前目录中的文件，然后再在其子目录中查找</p>
+<pre class=" language-c"><code class="language-c">find <span class="token operator">/</span> <span class="token operator">-</span>name <span class="token string">"CON.FILE"</span> <span class="token operator">-</span>depth –print # 它将首先匹配所有的文件然后再进入子目录中查找
+</code></pre>
+</li>
+<li><p>-user：照文件属主来查找文件</p>
+<pre class=" language-c"><code class="language-c">find <span class="token operator">~</span> <span class="token operator">-</span>user sam –print # 在$HOME目录中查找文件属主为sam的文件
+</code></pre>
+</li>
+<li><p>-group：按照文件所属的组来查找文件</p>
+<pre class=" language-c"><code class="language-c">find <span class="token operator">/</span>apps <span class="token operator">-</span>group gem –print # 在<span class="token operator">/</span>apps目录下查找属于gem用户组的文件
+</code></pre>
+</li>
+<li><p>-mtime -n +n：按照文件的更改时间来查找文件， -n 表示文件更改时间距现在n天以内，+n 表示文件更改时间距现在 n 天以前</p>
+<pre class=" language-c"><code class="language-c">find <span class="token operator">/</span> <span class="token operator">-</span>mtime <span class="token operator">-</span><span class="token number">5</span> –print # 在系统根目录下查找更改时间在<span class="token number">5</span>日以内的文件
+find <span class="token operator">/</span>var<span class="token operator">/</span>adm <span class="token operator">-</span>mtime <span class="token operator">+</span><span class="token number">3</span> –print # 在<span class="token operator">/</span>var<span class="token operator">/</span>adm目录下查找更改时间在<span class="token number">3</span>日以前的文件
+</code></pre>
+</li>
+<li><p>-nogroup：查找无有效所属组的文件，即该文件所属的组在 /etc/groups 中不存在</p>
+<pre class=" language-c"><code class="language-c">find <span class="token operator">/</span> –nogroup <span class="token operator">-</span>print
+</code></pre>
+</li>
+<li><p>-nouser：查找无有效属主的文件，即该文件的属主在 /etc/passwd 中不存在</p>
+<pre class=" language-c"><code class="language-c">find <span class="token operator">/</span>home <span class="token operator">-</span>nouser –print
+</code></pre>
+</li>
+<li><p>-newer file1 ! file2：查找更改时间比文件 file1 新但比文件 file2 旧的文件</p>
+</li>
+<li><p>-type 查找某一类型的文件</p>
+<blockquote>
+<ul>
+<li><p>b - 块设备文件，比如磁盘。</p>
+</li>
+<li><p>d - 目录。</p>
+</li>
+<li><p>c - 字符设备文件，比如鼠标键盘网卡。</p>
+</li>
+<li><p>p - 管道文件。</p>
+</li>
+<li><p>l - 符号链接文件。</p>
+</li>
+<li><p>f - 普通文件。</p>
+<pre class=" language-c"><code class="language-c">find <span class="token operator">/</span>etc <span class="token operator">-</span>type d –print # 在<span class="token operator">/</span>etc目录下查找所有的目录
+find <span class="token punctuation">.</span> <span class="token operator">!</span> <span class="token operator">-</span>type d –print # 在当前目录下查找除目录以外的所有类型的文件
+find <span class="token operator">/</span>etc <span class="token operator">-</span>type l –print # 在<span class="token operator">/</span>etc目录下查找所有的符号链接文件
+</code></pre>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>-size n[c]：查找文件长度为 n 块的文件，带有 c 时表示文件长度以字节计</p>
+<pre class=" language-c"><code class="language-c">find <span class="token punctuation">.</span> <span class="token operator">-</span>size <span class="token operator">+</span>1000000c –print # 在当前目录下查找文件长度大于<span class="token number">1</span> M字节的文件
+find <span class="token operator">/</span>home<span class="token operator">/</span>apache <span class="token operator">-</span>size 100c –print # 在<span class="token operator">/</span>home<span class="token operator">/</span>apache目录下查找文件长度恰好为<span class="token number">100</span>字节的文件
+find <span class="token punctuation">.</span> <span class="token operator">-</span>size <span class="token operator">+</span><span class="token number">10</span> –print # 在当前目录下查找长度超过<span class="token number">10</span>块的文件（一块等于<span class="token number">512</span>字节）
+</code></pre>
+</li>
+<li><p>-mount：在查找文件时不跨越文件系统 mount 点</p>
+<pre class=" language-c"><code class="language-c">find <span class="token punctuation">.</span> <span class="token operator">-</span>name “<span class="token operator">*</span><span class="token punctuation">.</span>XC” <span class="token operator">-</span>mount –print # 从当前目录开始查找位于本文件系统中文件名以XC结尾的文件（不进入其他文件系统）
+</code></pre>
+</li>
+<li><p>-follow：如果 find 命令遇到符号链接文件，就跟踪至链接所指向的文件</p>
+</li>
+<li><p>-exec：find 命令对匹配的文件执行该参数所给出的 shell 命令。相应命令的形式为 ’command’ {} ;，注意 {} 和 ; 之间的空格</p>
+<pre class=" language-c"><code class="language-c">$ find <span class="token punctuation">.</span><span class="token operator">/</span> <span class="token operator">-</span>size <span class="token number">0</span> <span class="token operator">-</span>exec rm <span class="token punctuation">{</span><span class="token punctuation">}</span> \<span class="token punctuation">;</span> # 删除文件大小为零的文件
+$ rm <span class="token operator">-</span>i `find <span class="token punctuation">.</span><span class="token operator">/</span> <span class="token operator">-</span>size <span class="token number">0</span>`
+$ find <span class="token punctuation">.</span><span class="token operator">/</span> <span class="token operator">-</span>size <span class="token number">0</span> <span class="token operator">|</span> xargs rm <span class="token operator">-</span>f <span class="token operator">&amp;</span>
+# 为了用ls <span class="token operator">-</span>l命令列出所匹配到的文件，可以把ls <span class="token operator">-</span>l命令放在find命令的<span class="token operator">-</span>exec选项中：
+$ find <span class="token punctuation">.</span> <span class="token operator">-</span>type f <span class="token operator">-</span>exec ls <span class="token operator">-</span>l <span class="token punctuation">{</span><span class="token punctuation">}</span> \<span class="token punctuation">;</span>
+# 在<span class="token operator">/</span>logs目录中查找更改时间在<span class="token number">5</span>日以前的文件并删除它们：
+find <span class="token operator">/</span>logs <span class="token operator">-</span>type f <span class="token operator">-</span>mtime <span class="token operator">+</span><span class="token number">5</span> <span class="token operator">-</span>exec rm <span class="token punctuation">{</span><span class="token punctuation">}</span> \<span class="token punctuation">;</span>
+</code></pre>
+</li>
+<li><p>-ok：和 -exec 的作用相同，只不过以一种更为安全的模式来执行该参数所给出的 shell 命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行</p>
+</li>
+</ul>
+</li>
+<li><p>locate</p>
+<p>locate类似于find -name，搜索速度更快（不搜索具体目录，而是搜索一个数据库（/var/lib/locatedb），这个数据库中含有本地所有文件信息）</p>
+<blockquote>
+<p>Linux 系统自动创建这个数据库，并且每天自动更新一次，所以使用 locate 命令查不到最新变动过的文件。为了避免这种情况，可以在使用 locate 之前，先使用 <strong>updatedb 命令</strong>，手动更新数据库。</p>
+</blockquote>
+<pre class=" language-c++"><code class="language-c++"># 搜索用户主目录下，所有以m开头的文件，并且忽略大小写。
+$ locate -i ~/m
+</code></pre>
+</li>
+<li><p>whereis</p>
+<p>whereis 命令只能用于<strong>程序名的搜索</strong>，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息。</p>
+<pre class=" language-c"><code class="language-c">$ whereis grep
+<span class="token macro property"># grep: /bin/grep /usr/share/man/man1p/grep.1p.gz /usr/share/man/man1/grep.1.gz</span>
+</code></pre>
+</li>
+<li><p>which</p>
+<p>which 命令的作用是，在 <strong>PATH 变量指定</strong>的路径中，搜索某个<strong>系统命令</strong>的位置，并且返回第一个搜索结果。也就是说，使用 which 命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</p>
+<pre class=" language-c"><code class="language-c">$ which grep
+# <span class="token operator">/</span>bin<span class="token operator">/</span>grep
+</code></pre>
+</li>
+</ul>
+<h4 id="五、进程"><a href="#五、进程" class="headerlink" title="五、进程"></a>五、进程</h4><p>Linux中的ps命令是<strong>Process Status</strong>的缩写。ps命令用来列出系统中当前运行的那些进程。ps命令列出的是当前那些进程的快照，</p>
+<p>就是执行ps命令的那个时刻的那些进程，<strong>如果想要动态的显示进程信息，就可以使用top命令</strong>。</p>
+<ul>
+<li><p>进程输出说明</p>
+<pre class=" language-c"><code class="language-c">F S   UID    PID   PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+<span class="token number">0</span> R  <span class="token number">1000</span>   <span class="token number">9455</span>  <span class="token number">79650</span>  <span class="token number">0</span>  <span class="token number">80</span>   <span class="token number">0</span> <span class="token operator">-</span>  <span class="token number">7657</span> <span class="token operator">-</span>      pts<span class="token operator">/</span><span class="token number">4</span>    <span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span> ps
+<span class="token number">0</span> S  <span class="token number">1000</span>  <span class="token number">79650</span>  <span class="token number">79575</span>  <span class="token number">0</span>  <span class="token number">80</span>   <span class="token number">0</span> <span class="token operator">-</span>  <span class="token number">6093</span> wait   pts<span class="token operator">/</span><span class="token number">4</span>    <span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span> bash
+
+F 代表这个程序的旗标 <span class="token punctuation">(</span>flag<span class="token punctuation">)</span>， <span class="token number">4</span> 代表使用者为 super user
+
+S 代表这个程序的状态 <span class="token punctuation">(</span>STAT<span class="token punctuation">)</span>，关于各 STAT 的意义将在内文介绍
+
+UID 程序被该 UID 所拥有
+
+PID 就是这个程序的 ID ！
+
+PPID 则是其上级父程序的ID
+
+C CPU 使用的资源百分比
+
+PRI 这个是 <span class="token function">Priority</span> <span class="token punctuation">(</span>优先执行序<span class="token punctuation">)</span> 的缩写，详细后面介绍
+
+NI 这个是 Nice 值，在下一小节我们会持续介绍
+
+ADDR 这个是 kernel function，指出该程序在内存的那个部分。如果是个 running的程序，一般就是 <span class="token string">"-"</span>
+
+SZ 使用掉的内存大小
+
+WCHAN 目前这个程序是否正在运作当中，若为 <span class="token operator">-</span> 表示正在运作
+
+TTY 登入者的终端机位置
+
+TIME 使用掉的 CPU 时间。
+
+CMD 所下达的指令为何
+
+在预设的情况下， ps 仅会列出与目前所在的 bash shell 有关的 PID 而已，所以， 当我使用 ps <span class="token operator">-</span>l 的时候，只有三个 PID
+</code></pre>
+</li>
+<li><p>命令参数</p>
+</li>
+</ul>
+<pre class=" language-c"><code class="language-c">命令参数：
+a  显示所有进程
+<span class="token operator">-</span>a 显示同一终端下的所有程序
+<span class="token operator">-</span>A 显示所有进程
+c  显示进程的真实名称
+<span class="token operator">-</span>N 反向选择
+<span class="token operator">-</span>e 等于“<span class="token operator">-</span>A”
+e  显示环境变量
+f  显示程序间的关系
+<span class="token operator">-</span>H 显示树状结构
+r  显示当前终端的进程
+T  显示当前终端的所有程序
+u  指定用户的所有进程
+<span class="token operator">-</span>au 显示较详细的资讯
+<span class="token operator">-</span>aux 显示所有包含其他使用者的行程 
+<span class="token operator">-</span>C<span class="token operator">&lt;</span>命令<span class="token operator">></span> 列出指定命令的状况
+<span class="token operator">--</span>lines<span class="token operator">&lt;</span>行数<span class="token operator">></span> 每页显示的行数
+<span class="token operator">--</span>width<span class="token operator">&lt;</span>字符数<span class="token operator">></span> 每页显示的字符数
+<span class="token operator">--</span>help 显示帮助信息
+<span class="token operator">--</span>version 显示版本显示
+</code></pre>
+<ul>
+<li><p>pstree —— 以树结构显示进程</p>
+<blockquote>
+<p>pstree -p work | grep ad           #work为工作用户，-p为显示进程识别码</p>
+</blockquote>
+</li>
+<li><p>ps -Lf</p>
+<pre class=" language-c"><code class="language-c">linux上进程有<span class="token number">5</span>种状态<span class="token punctuation">:</span>
+<span class="token number">1</span><span class="token punctuation">.</span> 运行<span class="token punctuation">(</span>正在运行或在运行队列中等待<span class="token punctuation">)</span>
+<span class="token number">2</span><span class="token punctuation">.</span> 中断<span class="token punctuation">(</span>休眠中<span class="token punctuation">,</span> 受阻<span class="token punctuation">,</span> 在等待某个条件的形成或接受到信号<span class="token punctuation">)</span>
+<span class="token number">3</span><span class="token punctuation">.</span> 不可中断<span class="token punctuation">(</span>收到信号不唤醒和不可运行<span class="token punctuation">,</span> 进程必须等待直到有中断发生<span class="token punctuation">)</span>
+<span class="token number">4</span><span class="token punctuation">.</span> 僵死<span class="token punctuation">(</span>进程已终止<span class="token punctuation">,</span> 但进程描述符存在<span class="token punctuation">,</span> 直到父进程调用<span class="token function">wait4</span><span class="token punctuation">(</span><span class="token punctuation">)</span>系统调用后释放<span class="token punctuation">)</span>
+<span class="token number">5</span><span class="token punctuation">.</span> 停止<span class="token punctuation">(</span>进程收到SIGSTOP<span class="token punctuation">,</span> SIGSTP<span class="token punctuation">,</span> SIGTIN<span class="token punctuation">,</span> SIGTOU信号后停止运行运行<span class="token punctuation">)</span>
+
+ps工具标识进程的<span class="token number">5</span>种状态码<span class="token punctuation">:</span>
+D 不可中断 uninterruptible <span class="token function">sleep</span> <span class="token punctuation">(</span>usually IO<span class="token punctuation">)</span>
+R 运行 <span class="token function">runnable</span> <span class="token punctuation">(</span>on run queue<span class="token punctuation">)</span>
+S 中断 sleeping
+T 停止 traced or stopped
+Z 僵死 a <span class="token function">defunct</span> <span class="token punctuation">(</span>”zombie”<span class="token punctuation">)</span> process
+</code></pre>
+</li>
+<li><p>pstack —— 显示每个进程的栈跟踪</p>
+<blockquote>
+<p>pstack pid</p>
+</blockquote>
+</li>
+<li><p>kill —— 终止进程</p>
+<pre class=" language-c"><code class="language-c">有十几种控制进程的方法，下面是一些常用的方法<span class="token punctuation">:</span>
+kill <span class="token operator">-</span>STOP <span class="token punctuation">[</span>pid<span class="token punctuation">]</span>
+发送<span class="token function">SIGSTOP</span> <span class="token punctuation">(</span><span class="token number">17</span><span class="token punctuation">,</span><span class="token number">19</span><span class="token punctuation">,</span><span class="token number">23</span><span class="token punctuation">)</span>停止一个进程，而并不消灭这个进程。
+kill <span class="token operator">-</span>CONT <span class="token punctuation">[</span>pid<span class="token punctuation">]</span>
+发送<span class="token function">SIGCONT</span> <span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">,</span><span class="token number">18</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">)</span>重新开始一个停止的进程。
+kill <span class="token operator">-</span>KILL <span class="token punctuation">[</span>pid<span class="token punctuation">]</span>
+发送<span class="token function">SIGKILL</span> <span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>强迫进程立即停止，并且不实施清理操作。
+kill <span class="token operator">-</span><span class="token number">9</span> <span class="token operator">-</span><span class="token number">1</span>
+终止你拥有的全部进程。
+SIGKILL 和 SIGSTOP 信号不能被捕捉、封锁或者忽略，但是，其它的信号可以。所以这是你的终极武器。
+</code></pre>
+</li>
+<li><p>ps -A —— 显示所有进程信息</p>
+</li>
+<li><p>ps -ef —— 显示所有进程信息，连同命令行</p>
+</li>
+</ul>
+<h4 id="六、非常用"><a href="#六、非常用" class="headerlink" title="六、非常用"></a>六、非常用</h4><ul>
+<li><p>关闭防火墙</p>
+<pre class=" language-c"><code class="language-c">chkconfig iptables off
+</code></pre>
+</li>
+<li><p>重启网络</p>
+<pre class=" language-c"><code class="language-c">service network restart
+</code></pre>
+</li>
+<li><p>定时任务指令 <strong>crontab</strong> </p>
+</li>
+<li><p>网络通信</p>
+<pre class=" language-c"><code class="language-c">ifconfig：查看网卡信息
+
+命令：ifconfig 或 ifconfig <span class="token operator">|</span> more
+
+ping：查看与某台机器的连接情况
+
+命令：ping ip
+
+netstat <span class="token operator">-</span>an：查看当前系统端口
+
+命令：netstat <span class="token operator">-</span>an
+
+搜索指定端口
+命令：netstat <span class="token operator">-</span>an <span class="token operator">|</span> grep <span class="token number">8080</span>
+</code></pre>
+</li>
+<li><p>系统服务</p>
+<pre class=" language-c"><code class="language-c">service iptables status  <span class="token operator">--</span>查看iptables服务的状态
+service iptables start  <span class="token operator">--</span>开启iptables服务
+service iptables stop  <span class="token operator">--</span>停止iptables服务
+service iptables restart  <span class="token operator">--</span>重启iptables服务
+ 
+chkconfig iptables off  <span class="token operator">--</span>关闭iptables服务的开机自启动
+chkconfig iptables on  <span class="token operator">--</span>开启iptables服务的开机自启动
+</code></pre>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">tmoure</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://tmoure.github.io/2022/01/29/linux/">https://tmoure.github.io/2022/01/29/linux/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">tmoure</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+                                    <span class="chip bg-color">命令行</span>
+                                </a>
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/null" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2022-01-29T22-25-50',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/01/29/linux/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="linux">
+                        
+                        <span class="card-title">linux</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%80%81%E8%B0%AD/" class="post-category">
+                                    老谭
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/">
+                        <span class="chip bg-color">命令行</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/01/29/typora/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="typora">
+                        
+                        <span class="card-title">typora</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%80%81%E8%B0%AD/" class="post-category">
+                                    老谭
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/">
+                        <span class="chip bg-color">编辑器</span>
+                    </a>
+                    
+                    <a href="/tags/typora/">
+                        <span class="chip bg-color">typora</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('20')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 三餐四季<br />'
+            + '文章作者: tmoure<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2829961453"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">tmoure</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="mailto:tanwang23@126.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=516418512" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 516418512" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!--动态线条背景-->
+    <script type="text/javascript"
+    color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+    </script>
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
+    
+
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
